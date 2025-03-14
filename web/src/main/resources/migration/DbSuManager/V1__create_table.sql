@@ -117,7 +117,7 @@ CREATE TABLE "db_postal_code" (
 CREATE TABLE "db_bank" (
   "bank_code" varchar(20) PRIMARY KEY,
   "transfer_bank_code" varchar,
-  "active" bool NOT NULL DEFAULT true,
+  "active" boolean NOT NULL DEFAULT true,
   "create_by" varchar(300),
   "create_at" timestamp,
   "update_by" varchar(300),
@@ -138,7 +138,7 @@ CREATE TABLE "db_bank_lang" (
 CREATE TABLE "db_bank_branch" (
   "bank_code" varchar(20),
   "branch_code" varchar(20),
-  "active" bool,
+  "active" boolean,
   "create_by" varchar(300),
   "create_at" timestamp,
   "update_by" varchar(300),
@@ -414,91 +414,3 @@ CREATE TABLE "db_message" (
   "update_at" timestamp,
   PRIMARY KEY ("message_code", "language_code")
 );
-
-ALTER TABLE "db_language" ADD FOREIGN KEY ("language_code") REFERENCES "db_message" ("language_code");
-
-ALTER TABLE "db_system_lang" ADD FOREIGN KEY ("system_code") REFERENCES "db_system" ("system_code");
-
-ALTER TABLE "db_system_lang" ADD FOREIGN KEY ("language_code") REFERENCES "db_language" ("language_code");
-
-ALTER TABLE "db_program" ADD FOREIGN KEY ("system_code") REFERENCES "db_system" ("system_code");
-
-ALTER TABLE "db_program" ADD FOREIGN KEY ("main_program") REFERENCES "db_program" ("program_code");
-
-ALTER TABLE "db_program_lang" ADD FOREIGN KEY ("program_code") REFERENCES "db_program" ("program_code");
-
-ALTER TABLE "db_program_lang" ADD FOREIGN KEY ("system_code") REFERENCES "db_program" ("system_code");
-
-ALTER TABLE "db_program_lang" ADD FOREIGN KEY ("module_code") REFERENCES "db_program" ("module_code");
-
-ALTER TABLE "db_language_lang" ADD FOREIGN KEY ("language_code") REFERENCES "db_language" ("language_code");
-
-ALTER TABLE "db_language_lang" ADD FOREIGN KEY ("language_code_ref") REFERENCES "db_language" ("language_code");
-
-ALTER TABLE "db_country_lang" ADD FOREIGN KEY ("country_code") REFERENCES "db_country" ("country_code");
-
-ALTER TABLE "db_country_lang" ADD FOREIGN KEY ("language_code") REFERENCES "db_language" ("language_code");
-
-ALTER TABLE "db_province_lang" ADD FOREIGN KEY ("province_code") REFERENCES "db_province" ("province_code");
-
-ALTER TABLE "db_province" ADD FOREIGN KEY ("country_code") REFERENCES "db_country" ("country_code");
-
-ALTER TABLE "db_province_lang" ADD FOREIGN KEY ("language_code") REFERENCES "db_language" ("language_code");
-
-ALTER TABLE "db_district_lang" ADD FOREIGN KEY ("district_code") REFERENCES "db_district" ("district_code");
-
-ALTER TABLE "db_district" ADD FOREIGN KEY ("province_code") REFERENCES "db_province" ("province_code");
-
-ALTER TABLE "db_district_lang" ADD FOREIGN KEY ("language_code") REFERENCES "db_language" ("language_code");
-
-ALTER TABLE "db_sub_district_lang" ADD FOREIGN KEY ("sub_district_code") REFERENCES "db_sub_district" ("sub_district_code");
-
-ALTER TABLE "db_sub_district" ADD FOREIGN KEY ("district_code") REFERENCES "db_district" ("district_code");
-
-ALTER TABLE "db_sub_district_lang" ADD FOREIGN KEY ("language_code") REFERENCES "db_language" ("language_code");
-
-ALTER TABLE "db_postal_code" ADD FOREIGN KEY ("country_code") REFERENCES "db_country" ("country_code");
-
-ALTER TABLE "db_postal_code" ADD FOREIGN KEY ("province_code") REFERENCES "db_province" ("province_code");
-
-ALTER TABLE "db_postal_code" ADD FOREIGN KEY ("district_code") REFERENCES "db_district" ("district_code");
-
-ALTER TABLE "db_postal_code" ADD FOREIGN KEY ("sub_district_code") REFERENCES "db_sub_district" ("sub_district_code");
-
-ALTER TABLE "db_currency_lang" ADD FOREIGN KEY ("currency_code") REFERENCES "db_currency" ("currency_code");
-
-ALTER TABLE "db_language" ADD FOREIGN KEY ("language_code") REFERENCES "db_currency_lang" ("language_code");
-
-ALTER TABLE "db_prefix_lang" ADD FOREIGN KEY ("prefix_id") REFERENCES "db_prefix" ("prefix_id");
-
-ALTER TABLE "db_language" ADD FOREIGN KEY ("language_code") REFERENCES "db_prefix_lang" ("language_code");
-
-ALTER TABLE "db_bank_lang" ADD FOREIGN KEY ("bank_code") REFERENCES "db_bank" ("bank_code");
-
-ALTER TABLE "db_language" ADD FOREIGN KEY ("language_code") REFERENCES "db_bank_lang" ("language_code");
-
-ALTER TABLE "db_bank_branch" ADD FOREIGN KEY ("bank_code") REFERENCES "db_bank" ("bank_code");
-
-ALTER TABLE "db_bank_branch_lang" ADD FOREIGN KEY ("bank_code") REFERENCES "db_bank_branch" ("bank_code");
-
-ALTER TABLE "db_bank_branch_lang" ADD FOREIGN KEY ("branch_code") REFERENCES "db_bank_branch" ("branch_code");
-
-ALTER TABLE "db_language" ADD FOREIGN KEY ("language_code") REFERENCES "db_bank_branch_lang" ("language_code");
-
-ALTER TABLE "db_organization_lang" ADD FOREIGN KEY ("organization_id") REFERENCES "db_organization" ("organization_id");
-
-ALTER TABLE "db_language" ADD FOREIGN KEY ("language_code") REFERENCES "db_organization_lang" ("language_code");
-
-ALTER TABLE "db_organization_parameter" ADD FOREIGN KEY ("organization_id") REFERENCES "db_organization" ("organization_id");
-
-ALTER TABLE "su_company" ADD FOREIGN KEY ("organization_id") REFERENCES "db_organization" ("organization_id");
-
-ALTER TABLE "su_company_lang" ADD FOREIGN KEY ("company_id") REFERENCES "su_company" ("company_id");
-
-ALTER TABLE "su_company_lang" ADD FOREIGN KEY ("organization_id") REFERENCES "su_company" ("organization_id");
-
-ALTER TABLE "db_language" ADD FOREIGN KEY ("language_code") REFERENCES "su_company_lang" ("language_code");
-
-ALTER TABLE "su_address" ADD FOREIGN KEY ("address_id") REFERENCES "su_company" ("address_id");
-
-ALTER TABLE "su_company_parameter" ADD FOREIGN KEY ("company_id") REFERENCES "su_company" ("company_id");

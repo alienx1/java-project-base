@@ -16,7 +16,7 @@ spring:
             r2dbc-url: r2dbc:postgresql://localhost:5432/system-db # ?ssl=true&sslfactory=org.postgresql.ssl.DefaultJavaSSLFactory&sslrootcert=/path/to/root.crt&sslcert=/path/to/client.crt&sslkey=/path/to/client.key
             username: crh_user
             password: crh_password
-            locations: classpath:migration/main/DbSuManager
+            locations: classpath:migration/DbSuManager
             driver-class-name: org.postgresql.Driver
 logging:
     level:
