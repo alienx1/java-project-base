@@ -1,0 +1,24 @@
+server:
+    port: 8080
+
+spring:
+    security:
+        oauth2:
+            provider:
+                issuer-uri: https://ptc-id.softsquaregroup.app/realms/webportal
+                jwk-set-uri: https://ptc-id.softsquaregroup.app/realms/webportal/protocol/openid-connect/certs
+                audience: WT
+    flyway:
+        enabled: true
+    datasource:
+        db-su-manager:
+            jdbc-url: jdbc:postgresql://localhost:5432/system-db
+            r2dbc-url: r2dbc:postgresql://localhost:5432/system-db # ?ssl=true&sslfactory=org.postgresql.ssl.DefaultJavaSSLFactory&sslrootcert=/path/to/root.crt&sslcert=/path/to/client.crt&sslkey=/path/to/client.key
+            username: crh_user
+            password: crh_password
+            locations: classpath:migration/main/DbSuManager
+            driver-class-name: org.postgresql.Driver
+logging:
+    level:
+        root: INFO
+        org.flywaydb: DEBUG

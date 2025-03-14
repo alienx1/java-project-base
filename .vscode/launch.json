@@ -1,0 +1,13 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<web>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.ss.web.Application",
+            "projectName": "web",
+            "javaExec": "/home/attaporn_j/.sdkman/candidates/java/21.0.6-tem/bin/java"
+        }
+    ]
+}
