@@ -1,4 +1,4 @@
-package com.ss.persistence.config;
+package com.ss.persistence.database;
 
 import org.flywaydb.core.Flyway;
 import org.springframework.beans.factory.annotation.Autowired;

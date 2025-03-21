@@ -3,7 +3,7 @@
 .actrc
 
 docker/system-db
-
+docker/evaluate-loki/.data
 ### STS ###
 .apt_generated
 .classpath

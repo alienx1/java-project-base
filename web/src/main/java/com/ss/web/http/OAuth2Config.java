@@ -1,4 +1,4 @@
-package com.ss.web.config;
+package com.ss.web.http;
 
 import java.util.List;
 
@@ -59,7 +59,7 @@ public class OAuth2Config {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf
-                        .ignoringRequestMatchers("/public/**") // Disable CSRF protection for public endpoints
+                        .ignoringRequestMatchers("/public/**") // Disable CSRF protection for public (Test) endpoints
                 )
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
                         .requestMatchers("/public/**").permitAll() // Allow public access to "/public/**"

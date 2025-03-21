@@ -6,6 +6,8 @@ import java.util.UUID;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
+import com.ss.domain.entity.base.BaseEntity;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,10 +18,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Test implements Serializable{
+public class Test extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = -4426646934L;
-    
+
     @Id
     private UUID id;
 

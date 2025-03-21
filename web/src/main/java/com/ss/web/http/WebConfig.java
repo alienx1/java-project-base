@@ -1,4 +1,4 @@
-package com.ss.web.config;
+package com.ss.web.http;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.lang.NonNull;

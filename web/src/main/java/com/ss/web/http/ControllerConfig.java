@@ -1,4 +1,4 @@
-package com.ss.web.config;
+package com.ss.web.http;
 
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.web.bind.WebDataBinder;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.InitBinder;
 
 @ControllerAdvice
-public class ControllerSetup
+public class ControllerConfig
 {
     @InitBinder
     public void initBinder ( WebDataBinder binder )
