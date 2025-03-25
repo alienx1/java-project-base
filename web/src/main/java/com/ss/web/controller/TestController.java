@@ -13,6 +13,7 @@ import com.ss.domain.model.TestModel;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Schedulers;
 
 @RestController
 @RequestMapping("/public")
@@ -39,4 +40,14 @@ public class TestController {
         return String.format("Hello %s!", name);
     }
 
+    @GetMapping("/demo-job")
+    public Mono<String> runDemoJob() {
+
+        Mono.fromRunnable(() -> testFeature.testDemoJob())
+                .subscribeOn(Schedulers.boundedElastic())
+                .subscribe();
+    
+        return Mono.just("Demo Job started");
+    }
+    
 }

@@ -2,11 +2,16 @@ server:
     port: 8443
     ssl:
         key-store: classpath:ssl/app_keystore.p12
-        key-store-password: b6+aT/+E86N9FiFCSLOyJw==
+        key-store-password: ${KEYSTORE_PASSWORD}
         key-store-type: PKCS12
         key-alias: ssl
-        key-password: b6+aT/+E86N9FiFCSLOyJw==
-        
+        key-password: ${KEYSTORE_PASSWORD}
+        enabled-protocols: TLSv1.2, TLSv1.3
+        cipher-suites:
+        - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+        - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+        - TLS_RSA_WITH_AES_128_GCM_SHA256
+
 spring:
     security:
         oauth2:
@@ -15,7 +20,6 @@ spring:
                 jwk-set-uri: https://xxx/realms/xxx/protocol/openid-connect/certs
                 audience: xxx
                 client-id: xxxxx
-                realm: xxxxx
                 admin-realm: xxxxx
                 admin-client-id: xxxxx
                 admin-client-secret: xxxxxxxxxxxxx
@@ -27,7 +31,7 @@ spring:
     datasource:
         db-su-manager:
             jdbc-url: jdbc:postgresql://localhost:5432/system-db
-            r2dbc-url: r2dbc:postgresql://localhost:5432/system-db # ?ssl=true&sslfactory=org.postgresql.ssl.DefaultJavaSSLFactory&sslrootcert=/path/to/root.crt&sslcert=/path/to/client.crt&sslkey=/path/to/client.key
+            r2dbc-url: r2dbc:postgresql://localhost:5432/system-db 
             username: crh_user
             password: crh_password
             locations: classpath:migration/DbSuManager

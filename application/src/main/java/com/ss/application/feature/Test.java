@@ -5,8 +5,10 @@ import com.ss.domain.model.TestModel;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-public interface Test  {
+public interface Test {
     public Mono<TestModel> testInsert(TestModel testModel);
-    
+
     public Flux<TestModel> testSelect();
+
+    public void testDemoJob();
 }

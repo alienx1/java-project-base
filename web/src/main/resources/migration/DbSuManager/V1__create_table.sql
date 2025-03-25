@@ -8,3 +8,4 @@ CREATE TABLE "test" (
   "update_by" VARCHAR(300),
   "update_at" TIMESTAMP
 );
+
