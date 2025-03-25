@@ -6,23 +6,23 @@
     <parent>
           <groupId>com.ss</groupId>
           <artifactId>system</artifactId>
-          <version>1.0-SNAPSHOT</version>
+          <version>1.0</version>
     </parent>
 
     <artifactId>persistence</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <dependencies>
       <dependency>
             <groupId>com.ss</groupId>
             <artifactId>domain</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0</version>
       </dependency>
       <dependency>
             <groupId>com.ss</groupId>
             <artifactId>infrastructure</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0</version>
       </dependency>
 
       <dependency>

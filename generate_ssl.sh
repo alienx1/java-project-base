@@ -42,8 +42,6 @@ else
     exit 1
 fi
 
-# Export the keystore password as an environment variable
-export KEYSTORE_PASSWORD
 
 # Importing the PKCS12 keystore into a Java keystore (if needed)
 # If you need to convert the PKCS12 to JKS format, use the following keytool command
