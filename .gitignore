@@ -4,6 +4,8 @@
 
 docker/system-db
 docker/evaluate-loki/.data
+web/src/main/view/node_modules
+web/src/main/view/.next
 ### STS ###
 .apt_generated
 .classpath
