@@ -6,11 +6,11 @@
     <parent>
           <groupId>com.ss</groupId>
           <artifactId>system</artifactId>
-          <version>1.0</version>
+          <version>${artifact.version}</version>
     </parent>
 
     <artifactId>infrastructure</artifactId>
-    <version>1.0</version>
+    <version>${artifact.version}</version>
     <packaging>jar</packaging>
 
     <dependencies>
@@ -40,10 +40,15 @@
       <dependency>
         <groupId>com.sun.mail</groupId>
         <artifactId>javax.mail</artifactId>
-        <version>1.6.2</version>
+        <version>${javax.mail.version}</version>
       </dependency>
 
-      
+      <dependency>
+        <groupId>org.keycloak</groupId>
+        <artifactId>keycloak-admin-client</artifactId>
+        <version>${keycloak.version}</version>
+    </dependency>
+
     </dependencies>
 
     <build>
@@ -51,10 +56,10 @@
           <plugin>
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-compiler-plugin</artifactId>
-              <version>3.13.0</version>
+              <version>${maven.version}</version>
               <configuration>
-                  <source>21</source>
-                  <target>21</target>
+                  <source>${java.version}</source>
+                  <target>${java.version}</target>
               </configuration>
           </plugin>
       </plugins>

@@ -6,18 +6,18 @@
     <parent>
           <groupId>com.ss</groupId>
           <artifactId>system</artifactId>
-          <version>1.0</version>
+          <version>${artifact.version}</version>
     </parent>
 
     <artifactId>domain</artifactId>
-    <version>1.0</version>
+    <version>${artifact.version}</version>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
             <groupId>com.ss</groupId>
             <artifactId>infrastructure</artifactId>
-            <version>1.0</version>
+            <version>${artifact.version}</version>
         </dependency>
 
         <dependency>
@@ -31,10 +31,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+                <version>${maven.version}</version>
                 <configuration>
-                    <source>21</source>
-                    <target>21</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
         </plugins>

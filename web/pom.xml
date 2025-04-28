@@ -7,7 +7,7 @@
     <parent>
         <groupId>com.ss</groupId>
         <artifactId>system</artifactId>
-        <version>1.0</version>
+        <version>${artifact.version}</version>
     </parent>
 
     <packaging>jar</packaging>
@@ -18,13 +18,13 @@
         <dependency>
             <groupId>com.ss</groupId>
             <artifactId>infrastructure</artifactId>
-            <version>1.0</version>
+            <version>${artifact.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.ss</groupId>
             <artifactId>application</artifactId>
-            <version>1.0</version>
+            <version>${artifact.version}</version>
         </dependency>
 
         <!-- Spring Boot Starter Web -->
@@ -33,7 +33,16 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        
+                <!-- security  -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+		</dependency>
 
     </dependencies>
     <build>
@@ -55,10 +64,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+                <version>${maven.version}</version>
                 <configuration>
-                    <source>21</source>
-                    <target>21</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
         </plugins>
