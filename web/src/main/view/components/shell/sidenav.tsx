@@ -22,6 +22,7 @@ const navItems = [
             { name: "Layout", href: "/demo/layout", icon: InformationCircleIcon },
             { name: "Input", href: "/demo/input", icon: InformationCircleIcon },
             { name: "Table", href: "/demo/table", icon: InformationCircleIcon },
+            { name: "Chart", href: "/demo/chart", icon: InformationCircleIcon },
 
         ],
     },
